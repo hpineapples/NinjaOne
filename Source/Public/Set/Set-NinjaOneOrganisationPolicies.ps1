@@ -57,9 +57,9 @@ function Set-NinjaOneOrganisationPolicies {
             }
         }
         try {
-            $Resource = ("v2/organization/{0}/policies" -f $organisationId)
             $Organisation = Get-NinjaOneOrganisations -OrganisationId $organisationId
             if ($Organisation) {
+                $Resource = ("v2/organization/{0}/policies" -f $organisationId)
                 if ($PSCmdlet.ParameterSetName -eq 'Single') {
                     try {
                         ValidateNodeRoleAndPolicy -nodeRoleId $nodeRoleId -policyId $policyId
